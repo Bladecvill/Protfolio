@@ -12,10 +12,11 @@
   --secondary-color: #ca0000;
   --secondary-color-hover: #ff002b;
   --text-color: #BCBCCC;
+  --box-shadow: 0 0 0 10px rgba(255, 0, 43, 0.18);
 }
 
 body {
-  background: var(--primary-color   );
+  background: var(--primary-color);
   display: flex;
   height: 100vh;
 }
@@ -30,7 +31,6 @@ header > div {
   justify-content: space-between;
   align-items: center;
   z-index: 100;
-
   border-bottom: var(--secondary-color) 5px solid;
 }
 
@@ -61,18 +61,42 @@ header > div {
 .home {
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: calc(100vh - 120px);
   background: var(--bg-color);
   background-size: cover;
   background-position: center;
   display: flex;
   align-items: center;
-  padding: 30px 100px;
+  justify-content: space-between;
+  padding: 120px 200px 30px;
 }
 .content {
   max-width: 500px;
   color: var(--text-color);
+  z-index: 1;
 }
+.foto {
+  width: 320px;
+  height: 320px;
+  max-width: 35%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 40px;
+  overflow: hidden;
+
+}
+.foto img {
+  width: 280px;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow:var(--box-shadow);
+  align-items: center;
+  justify-content: center;
+}
+
+
 .content h2 {
   font-size: 3em;
 }
@@ -85,7 +109,13 @@ header > div {
 .content p {
   padding: 10px 0 40px 0;
 }
-.btn-group a {
+.btn-group {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.btn-projeto a {
   color: var(--text-color);
   text-decoration: none;
   padding: 10px 40px;
@@ -95,24 +125,24 @@ header > div {
   font-weight: 500;
   transition: 0.3s;
 }
-.btn-group a:hover:nth-child(1) {
+.btn-projeto a:hover:nth-child(1) {
   color: var(--secondary-color);
   background: transparent;
 }
-.btn-group a:nth-child(2) {
+.btn-projeto a:nth-child(2) {
   color: var(--secondary-color);
   background: transparent;
   margin-left: 30px;
   padding: 10px 30px;
 }
-.btn-group a:hover:nth-child(2) {
+.btn-projeto a:hover:nth-child(2) {
   color: var(--text-color);
   background: var(--secondary-color);
 }
-.social-icons {
-  position: absolute;
-  bottom: 50px;
-}
+
+/*.social-icons {
+
+}*/
 .social-icons a {
   display: inline-block;
   width: 35px;
@@ -131,18 +161,4 @@ header > div {
 }
 .social-icons a i {
   color: var(--text-color);
-}
-
-.foto {
-  flex: 1;
-  background: radial-gradient(circle at center, #ca0000 150px, transparent 150px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.foto img {
-  width: 300px;
-  height: 300px;
-  object-fit: cover;
 }
