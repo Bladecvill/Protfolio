@@ -7,18 +7,18 @@
 }
 :root {
   --gradient-color: linear-gradient(135deg, #ca0000, #ca0000);
-  --primary-color: #202020;
-  --primary-color-hover: #2b2b2b;
-  --secondary-color: #ca0000;
-  --secondary-color-hover: #ff002b;
-  --text-color: #BCBCCC;
-  --box-shadow: 0 0 0 10px rgba(255, 0, 43, 0.18);
+  --primary-color: #000000;
+  --primary-color-hover: #202020;
+  --secondary-color: #600000;
+  --secondary-color-hover: #ca0000;
+  --text-color: #bcbccc;
+  --box-shadow: 0 0 0 5px rgba(255, 0, 43, 0.18);
 }
 
 body {
   background: var(--primary-color);
   display: flex;
-  height: 100dvh; 
+  height: 100dvh;
 }
 
 /*========== Header ==========*/
@@ -35,7 +35,7 @@ header > div {
 }
 
 .logo {
-  font-size: 2em;
+  font-size: 2.5em;
   color: var(--text-color);
   cursor: default;
 }
@@ -46,7 +46,7 @@ header > div {
   margin-left: -300px;
 }
 .navigation a {
-  font-size: 1.1em;
+  font-size: 1.3em;
   color: var(--text-color);
   text-decoration: none;
   margin-right: 40px;
@@ -54,8 +54,8 @@ header > div {
   transition: 0.3s;
 }
 
-.navigation a:hover{
-  color: var(--secondary-color);
+.navigation a:hover {
+  color: var(--secondary-color-hover);
   filter: drop-shadow(1px 1px 10px #ff002b);
 }
 
@@ -83,32 +83,33 @@ header > div {
   justify-content: center;
   border-radius: 40px;
   overflow: hidden;
-  filter: drop-shadow(1px 1px 10px #ca0000);
-  filter: drop-shadow(1px 1px 10px #ff002b);
+  filter: drop-shadow(1px 1px 20px #ca0000);
 }
+
 .foto img {
   width: 425px;
   height: 425px;
   object-fit: cover;
   border-radius: 50%;
-  
+
   align-items: center;
   justify-content: center;
 }
-
 
 .content h2 {
   font-size: 3em;
 }
 .content h2 span {
-  color: var(--secondary-color);
+  color: var(--secondary-color-hover);
 }
 .content h4 {
   font-size: 2em;
 }
 .content p {
+  font-size: 1.2rem;
   padding: 10px 0 40px 0;
 }
+
 .btn-group {
   display: flex;
   align-items: center;
@@ -116,48 +117,60 @@ header > div {
 }
 
 .btn-projeto a {
+  font-size: 1.2rem;
   text-decoration: none;
   padding: 10px 40px;
-  color: var(--secondary-color);
+  color: var(--secondary-color-hover);
   background: transparent;
   border-radius: 10px;
-  border: 2px solid var(--secondary-color);
+  border: 2px solid var(--secondary-color-hover);
   font-weight: 500;
   transition: 0.3s;
 }
 .btn-projeto a:hover:nth-child(1) {
   color: var(--text-color);
-  background: var(--secondary-color);
+  background: var(--secondary-color-hover);
 }
 .btn-projeto a:nth-child(2) {
-  color: var(--secondary-color);
+  color: var(--secondary-color-hover);
   background: transparent;
   margin-left: 30px;
   padding: 10px 30px;
 }
 .btn-projeto a:hover:nth-child(2) {
   color: var(--text-color);
-  background: var(--secondary-color);
+  background: var(--secondary-color-hover);
 }
 
+.social-icons {
+  display: flex;
+  gap: 15px; 
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+
 .social-icons a {
-  display: inline-block;
-  width: 35px;
-  height: 35px;
-  background: var(--secondary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  background: var(--secondary-color-hover);
   border-radius: 50%;
-  margin-right: 22px;
-  text-align: center;
-  line-height: 35px;
   border: 1px solid #fff;
   outline: 2px solid var(--secondary-color);
   transition: 0.3s;
+  text-decoration: none;
 }
+
 .social-icons a:hover {
   transform: translateY(-5px);
 }
+
 .social-icons a i {
   color: var(--text-color);
+  font-size: 1.3em;
 }
 
 /*========== About ==========*/
@@ -165,12 +178,10 @@ header > div {
 .about {
   width: 100%;
   min-height: 100vh;
-background-color: #2b2b2b;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 120px 20px 20px;
-
 }
 
 .about .content {
@@ -217,8 +228,285 @@ background-color: #2b2b2b;
   color: var(--text-color);
   font-size: 1.5em;
   padding: 10px;
-  
-  background-color: rgba(82, 82, 82, 0.3);
+
+  background-color: rgba(82, 82, 82, 0.8);
   border-radius: 20px;
 }
 
+/*========== Projects ==========*/
+
+.portfolio {
+  width: 100%;
+  min-height: 100vh;
+  padding: 120px 10% 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.heading {
+  font-size: 3em;
+  color: var(--text-color);
+  margin: 50px 0 50px 0;
+}
+
+.heading span {
+  color: var(--secondary-color-hover);
+}
+
+.portfolio-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+  width: 100%;
+}
+
+.portfolio-box {
+  background-color: var(--primary-color-hover);
+  border: 2px solid var(--secondary-color);
+  border-radius: 20px;
+  padding: 30px;
+  transition: 0.5s;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+
+  box-shadow:
+    0 0 5px var(--secondary-color),
+    inset 0 0 5px var(--secondary-color);
+}
+
+.portfolio-box:hover {
+  transform: scale(1.03);
+  border-color: var(--secondary-color-hover);
+  box-shadow:
+    0 0 15px var(--secondary-color),
+    0 0 30px var(--secondary-color),
+    inset 0 0 10px var(--secondary-color);
+}
+
+.portfolio-box h3 {
+  text-shadow: 0 0 5px rgba(202, 0, 0, 0.5);
+}
+
+.portfolio-content h3 {
+  font-size: 1.8em;
+  color: var(--text-color);
+  margin-bottom: 15px;
+}
+
+.portfolio-content p {
+  color: var(--text-color);
+  font-size: 1em;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.portfolio-content a {
+  text-decoration: none;
+  color: var(--secondary-color-hover);
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.portfolio-content a:hover {
+  text-decoration: underline;
+}
+
+.btn-github {
+  margin-top: 50px;
+}
+
+.btn-github .btn {
+  padding: 12px 30px;
+  font-size: 1.2rem;
+  background: transparent;
+  border: 2px solid var(--secondary-color);
+  color: var(--secondary-color);
+  transform: scale(1.02);
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.btn-github .btn:hover {
+  background: var(--secondary-color);
+  color: var(--text-color);
+}
+
+/*========== Skills ==========*/
+
+.skills {
+  width: 100%;
+  min-height: 100vh;
+  padding: 120px 5% 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.skills-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.skills-column {
+  flex: 1 1 20rem;
+}
+
+.skills-column .title {
+  font-size: 1.5rem;
+  margin: 0 0 1.5rem;
+  color: var(--text-color);
+  text-align: center;
+}
+
+.skills-box {
+  background: var(--primary-color-hover);
+  border: 2px solid var(--secondary-color);
+  border-radius: 15px;
+  padding: 1.5rem;
+  transition: 0.3s;
+}
+
+.skills-box:hover {
+  box-shadow: var(--box-shadow);
+  transform: translateY(-5px);
+}
+
+.skills-content .progress h3 {
+  font-size: 1.1rem;
+  color: var(--text-color);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 1rem;
+  font-weight: 400;
+}
+
+.skills-content .progress h3 i {
+  color: var(--secondary-color-hover);
+  font-size: 1.4rem;
+  width: 30px;
+  text-align: center;
+}
+
+/* Reutilizando a classe heading do portfólio */
+.heading {
+  font-size: 3em;
+  color: var(--text-color);
+  margin-bottom: 50px;
+}
+.heading span {
+  color: var(--secondary-color);
+}
+
+/*========== Contact ==========*/
+.contact {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 120px 10% 20px;
+}
+
+.contact-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+  width: 100%;
+  max-width: 1000px;
+}
+
+.contact-text {
+  flex: 1;
+}
+
+.contact-text h2 {
+  font-size: 3em;
+  color: var(--text-color);
+}
+
+.contact-text h2 span {
+  color: var(--secondary-color);
+}
+
+.contact-text p {
+  color: var(--text-color);
+  margin: 20px 0;
+}
+
+.contact-list {
+  list-style: none;
+  margin-bottom: 30px;
+}
+
+.contact-list li {
+  color: var(--text-color);
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.contact-list li i {
+  color: var(--secondary-color);
+}
+
+.contact-list li a {
+  color: var(--text-color);
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.contact-list li a:hover {
+  color: var(--secondary-color);
+  text-decoration: underline;
+}
+
+.contact-qr {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: transparent;
+  padding: 30px;
+  border-radius: 20px;
+  border: 2px solid var(--secondary-color);
+}
+
+.contact-qr:hover {
+  filter:  drop-shadow(1px 1px 20px #ca0000);
+  transform: translateY(-5px);
+}
+.contact-qr h3 {
+  color: var(--text-color);
+  margin-bottom: 20px;
+}
+
+.qr-box {
+  width: 200px;
+  height: 200px;
+  border-radius: 20px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 25px;
+  overflow: hidden;
+}
+
+.qr-box img {
+  width: 90%;
+  height: 90%;
+  object-fit: contain;
+}
