@@ -6,7 +6,7 @@
   font-family: "Poppins", sans-serif;
 }
 :root {
-  --gradient-color: linear-gradient(135deg, #ca0000, #ca0000);
+  --gradient-color: linear-gradient(135deg, #202020, #141414);
   --primary-color: #000000;
   --primary-color-hover: #202020;
   --secondary-color: #600000;
@@ -16,7 +16,7 @@
 }
 
 body {
-  background: var(--primary-color);
+  background: var(--gradient-color);
   display: flex;
   height: 100dvh;
 }
@@ -31,14 +31,21 @@ header > div {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: var(--secondary-color) 5px solid;
+  border-bottom:var(--secondary-color) 5px solid;
 }
 
 .logo {
   font-size: 2.5em;
   color: var(--text-color);
-  cursor: default;
+  cursor: pointer;
 }
+
+.logo a {
+  text-decoration: none;
+  color: inherit;
+  transition: 0.3s;
+}
+
 .logo span {
   color: var(--secondary-color-hover);
 }
@@ -149,7 +156,6 @@ header > div {
   flex-wrap: nowrap;
 }
 
-
 .social-icons a {
   display: flex;
   align-items: center;
@@ -247,7 +253,7 @@ header > div {
 .heading {
   font-size: 3em;
   color: var(--text-color);
-  margin: 50px 0 50px 0;
+  margin: 50px 0 50px;
 }
 
 .heading span {
@@ -293,7 +299,7 @@ header > div {
 .portfolio-content h3 {
   font-size: 1.8em;
   color: var(--text-color);
-  margin-bottom: 15px;
+  margin: 15px;
 }
 
 .portfolio-content p {
@@ -320,12 +326,16 @@ header > div {
   margin-top: 50px;
 }
 
+.btn-github:hover{
+  transform: scale(1.03);
+}
+
 .btn-github .btn {
   padding: 12px 30px;
   font-size: 1.2rem;
   background: transparent;
   border: 2px solid var(--secondary-color);
-  color: var(--secondary-color);
+  color: var(--secondary-color-hover);
   transform: scale(1.02);
   border-radius: 10px;
   text-decoration: none;
@@ -334,8 +344,12 @@ header > div {
 }
 
 .btn-github .btn:hover {
-  background: var(--secondary-color);
-  color: var(--text-color);
+  transform: scale(1.05);
+  border-color: var(--secondary-color-hover);
+  box-shadow:
+    0 0 15px var(--secondary-color),
+    0 0 30px var(--secondary-color),
+    inset 0 0 10px var(--secondary-color);
 }
 
 /*========== Skills ==========*/
@@ -377,8 +391,12 @@ header > div {
 }
 
 .skills-box:hover {
-  box-shadow: var(--box-shadow);
-  transform: translateY(-5px);
+  transform: scale(1.03);
+  border-color: var(--secondary-color-hover);
+  box-shadow:
+    0 0 15px var(--secondary-color),
+    0 0 30px var(--secondary-color),
+    inset 0 0 10px var(--secondary-color);
 }
 
 .skills-content .progress h3 {
@@ -398,16 +416,6 @@ header > div {
   text-align: center;
 }
 
-/* Reutilizando a classe heading do portfólio */
-.heading {
-  font-size: 3em;
-  color: var(--text-color);
-  margin-bottom: 50px;
-}
-.heading span {
-  color: var(--secondary-color);
-}
-
 /*========== Contact ==========*/
 .contact {
   width: 100%;
@@ -422,9 +430,11 @@ header > div {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 50px;
   width: 100%;
   max-width: 1000px;
+  border: 3px solid var(--secondary-color);
+  border-radius: 20px;
+  padding: 40px;
 }
 
 .contact-text {
@@ -432,17 +442,18 @@ header > div {
 }
 
 .contact-text h2 {
-  font-size: 3em;
+  font-size: 3rem;
   color: var(--text-color);
 }
 
 .contact-text h2 span {
-  color: var(--secondary-color);
+  color: var(--secondary-color-hover);
 }
 
 .contact-text p {
   color: var(--text-color);
   margin: 20px 0;
+  font-size: 1.5rem;
 }
 
 .contact-list {
@@ -455,11 +466,21 @@ header > div {
   font-size: 1.2rem;
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 25px;
+  padding: 10px; 
 }
 
 .contact-list li i {
   color: var(--secondary-color);
+}
+
+.contact-list li:hover {
+  background-color: #202020;
+  border-radius: 8px;
+}
+
+.contact-list li:hover a {
+  color: var(--secondary-color-hover);
 }
 
 .contact-list li a {
@@ -468,10 +489,6 @@ header > div {
   transition: 0.3s;
 }
 
-.contact-list li a:hover {
-  color: var(--secondary-color);
-  text-decoration: underline;
-}
 
 .contact-qr {
   flex: 1;
@@ -480,17 +497,12 @@ header > div {
   align-items: center;
   background: transparent;
   padding: 30px;
-  border-radius: 20px;
-  border: 2px solid var(--secondary-color);
 }
 
-.contact-qr:hover {
-  filter:  drop-shadow(1px 1px 20px #ca0000);
-  transform: translateY(-5px);
-}
 .contact-qr h3 {
   color: var(--text-color);
   margin-bottom: 20px;
+  font-size: 2.5rem;
 }
 
 .qr-box {
